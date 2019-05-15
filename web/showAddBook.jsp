@@ -12,18 +12,18 @@
         <title>Добавление книги</title>
     </head>
     <body>
-        <h1>Сщздать книгу</h1>
+        <h1>Создать книгу</h1>
         <form action="createBook" method="POST">
             Название книги:<br>
             <input type="text" name="name"><br>
             Автор книги:<br>
             <input type="text" name="author"><br>
             Год издания книги:<br>
-            <input type="text" name="pablishedYear"><br>
+            <input type="text" name="publishedYear"><br>
             ISBN книги:<br>
             <input type="text" name="isbn"><br>
             Количество книг:<br>
-            <input type="text" name="quatity"><br>
+            <input type="text" name="quantity"><br>
             <input type="submit" value="Создать"><br>
         </form>
     </body>

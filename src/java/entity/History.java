@@ -24,7 +24,7 @@ public class History implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private Reader reader;
@@ -128,7 +128,13 @@ private Date dateTakeBook;
 
     @Override
     public String toString() {
-        return "History{" + "id=" + id + ", reader=" + reader + ", book=" + book + ", dateTakeBook=" + dateTakeBook + ", dateReturnBook=" + dateReturnBook + '}';
+        return "History{" + "id=" + id 
+                + ", reader=" + reader.getName()
+                + "" +reader.getSurname()
+                + ", book=" + book.getName()
+                + ", dateTakeBook=" + dateTakeBook
+                + ", dateReturnBook=" + dateReturnBook
+                + '}';
     }
 
 

@@ -27,18 +27,18 @@ public class Book implements Serializable {
     private String author;
     private String isbn;
     private int publishedYear;
-    private int quatiry;
+    private int quantity;
     private int count;
     
     public Book(){
     }
 
-    public Book(String name, String author, String isbn, int publishedYear, int quatiry, int count) {
+    public Book(String name, String author, String isbn, int publishedYear, int quantity, int count) {
         this.name = name;
         this.author = author;
         this.isbn = isbn;
         this.publishedYear = publishedYear;
-        this.quatiry = quatiry;
+        this.quantity = quantity;
         this.count = count;
     }
 
@@ -84,12 +84,12 @@ public class Book implements Serializable {
         this.publishedYear = publishedYear;
     }
 
-    public int getQuatiry() {
-        return quatiry;
+    public int getQunatity() {
+        return quantity;
     }
 
-    public void setQuatiry(int quatiry) {
-        this.quatiry = quatiry;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getCount() {
@@ -108,7 +108,7 @@ public class Book implements Serializable {
         hash = 79 * hash + Objects.hashCode(this.author);
         hash = 79 * hash + Objects.hashCode(this.isbn);
         hash = 79 * hash + this.publishedYear;
-        hash = 79 * hash + this.quatiry;
+        hash = 79 * hash + this.quantity;
         hash = 79 * hash + this.count;
         return hash;
     }
@@ -128,7 +128,7 @@ public class Book implements Serializable {
         if (this.publishedYear != other.publishedYear) {
             return false;
         }
-        if (this.quatiry != other.quatiry) {
+        if (this.quantity != other.quantity) {
             return false;
         }
         if (this.count != other.count) {
@@ -151,7 +151,7 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book{" + "id=" + id + ", name=" + name + ", author=" + author + ", isbn=" + isbn + ", publishedYear=" + publishedYear + ", quatiry=" + quatiry + ", count=" + count + '}';
+        return "Book{" + "id=" + id + ", name=" + name + ", author=" + author + ", isbn=" + isbn + ", publishedYear=" + publishedYear + ", quantity=" + quantity + ", count=" + count + '}';
     }
 
  
