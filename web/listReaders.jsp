@@ -15,7 +15,7 @@
     <body>
         <h1>Нашу библиотеку посещают:</h1>
         <c:forEach var="reader" items="${listReaders}">
-            <p>${reader}</p>
+            <p>${reader.name} ${reader.surname} ${reader.phone}</p>
         </c:forEach>
     </body>
 </html>

@@ -15,15 +15,12 @@
         <h1>Читатель</h1>
         <form action="createReader" method="POST">
             Имя:<br>
-            <input type="text" name="firstName"><br>
+            <input type="text" name="name"><br>
             Фамилия:<br>
-            <input type="text" name="lastName"><br>
-           Год рождения:<br>
-            <input type="text" name="year"><br>
-            Адрес:<br>
-            <input type="text" name="adres"><br>
+            <input type="text" name="surname"><br>
+
             Номер телефона:<br>
-            <input type="text" name="quantity"><br>
+            <input type="text" name="phone"><br>
             <input type="submit" value="Создать"><br>
         </form>
     </body>
