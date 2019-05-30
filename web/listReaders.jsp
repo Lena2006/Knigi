@@ -14,8 +14,8 @@
     </head>
     <body>
         <h1>Нашу библиотеку посещают:</h1>
-        <c:forEach var="reader" items="${listReaders}">
-            <p>${reader.name} ${reader.surname} ${reader.phone}</p>
+        <c:forEach var="reader" items="${listReaders}" varStatus="number">
+            <p>${number.index+1}. ${reader.name}. ${reader.surname}. ${reader.phone}</p>
         </c:forEach>
     </body>
 </html>

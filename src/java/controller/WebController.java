@@ -54,6 +54,7 @@ public class WebController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        Calendar c = new GregorianCalendar();
         String path = request.getServletPath();
         switch (path) {
             case "/showAddBook":
@@ -121,9 +122,16 @@ public class WebController extends HttpServlet {
                 String bookId = request.getParameter("book");
                 reader = readerFacade.find(new Long(readerId));
                 book = bookFacade.find(Long.parseLong(bookId));
-                Calendar c = new GregorianCalendar();
-                History history = new History(reader, book, c.getTime(), null);
-                historyFacade.create(history);
+               
+                if (book.getCount()>0) {
+                   book.setCount(book.getCount()-1);
+                   bookFacade.edit(book);  
+                    History history = new History(reader, book, c.getTime(), null);
+                   historyFacade.create(history);
+                   request.setAttribute("info", "Книга выдана");
+                }else{
+                    request.setAttribute("info", "Книга не выдана. Все книги выданы");
+                }
                 request.getRequestDispatcher("/index.jsp")
                         .forward(request, response);
                 break;
@@ -135,8 +143,18 @@ public class WebController extends HttpServlet {
                         .forward(request, response);
                 
                 break;
-                case"/returnBook":
-                    break;
+            case"/returnBook":
+                String historyId = request.getParameter("historyId");
+                History history=historyFacade.find(new Long(historyId));
+                book = history.getBook();
+                book.setCount(book.getCount()+1);
+                bookFacade.edit(book);
+                c = new GregorianCalendar();
+                history.setDateReturnBook(c.getTime());
+                historyFacade.edit(history);
+                request.getRequestDispatcher("/index.jsp")
+                    .forward(request, response);
+                break;
         }
     }
 
@@ -177,6 +195,5 @@ public class WebController extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
