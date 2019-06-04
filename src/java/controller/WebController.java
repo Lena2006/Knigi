@@ -119,7 +119,7 @@ public class WebController extends HttpServlet {
                 break;
             case "/createHistory":
                 String readerId = request.getParameter("readerId");
-                String bookId = request.getParameter("book");
+                String bookId = request.getParameter("bookId");
                 reader = readerFacade.find(new Long(readerId));
                 book = bookFacade.find(Long.parseLong(bookId));
                

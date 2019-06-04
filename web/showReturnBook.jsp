@@ -19,7 +19,7 @@
         <select name="historyId">
             <c:forEach var="history" items="${listHistories}">
                 <option value="${history.id}">${history.reader.name} ${history.reader.surname}
-                    читает книгу${history.book.name}
+                    читает книгу ${history.book.name}
             </c:forEach>
         </select>
         <input type="submit" value="Вернуть книгу">
